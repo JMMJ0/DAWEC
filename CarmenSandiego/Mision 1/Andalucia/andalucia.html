@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var hora = 3600;
+        var horaInicio = horaEnSegundos(8);
+        var horaFin = horaEnSegundos(21);
+        var progresion = minutosEnSegundos(15);
+
+        function horaEnSegundos(q) {
+            return q * 60 * 60;
+        }
+
+        function minutosEnSegundos(q) {
+            return q * 60;
+        }
+
+        while (horaInicio < horaFin) {
+            horaInicio = horaInicio + progresion;
+
+            var hora = parseInt(horaInicio / 3600) % 24;
+            var minutos = parseInt(horaInicio / 60) % 60;
+            var segundos = horaInicio % 60;
+
+            var resultado = (hora < 10 ? "0" + hora : hora) + ":" + (minutos < 10 ? "0" + minutos : minutos);
+
+            document.write(resultado+"<br/>");
+        }
+    </script>
+</body>
+
+</html>
